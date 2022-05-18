@@ -1,4 +1,13 @@
-let newText = 'new Text';
-document.getElementById('ok').innerHTML = newText;
+document.getElementById('no').addEventListener('mousemove', function(e) {
+    console.log('x = ', e.screenX, " y = ",  e.screenY)
+})
 
-document.getElementById('no').innerHTML = "<i><b>" +'palmy' +"</b></i>";
+let eleS = document.getElementsByClassName('flex-item')
+for (let ele of eleS) {
+    ele.addEventListener('mousemove', function(e) {
+        console.log('x = ', e.screenX, " y = ",  e.screenY)
+    })
+    ele.addEventListener('click', function(e) {
+        alert(ele.innerText)
+    })
+}
