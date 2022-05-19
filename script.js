@@ -1,38 +1,23 @@
-const okElement = document.getElementById('ok')
-const cancelElement = document.getElementById('cancel')
-const noElement = document.getElementById('no')
-const textElement = document.getElementById('text')
-const outputContainer = document.getElementById('output-container')
+const searchButton = document.getElementById('searchButton')
+const inputText = document.getElementById('inputText')
+const output = document.getElementById('output')
 
-
-let text = ''
-let elems = document.getElementsByClassName('flex-item')
-for (let elem of elems) {
-    elem.addEventListener('click', function(e) {
-        e.stopPropagation()
-        //display(keyword[elem.id])
-        addNode();
-    })
-}
-function display(name) {
-    text = text + name +'\n'
-    textElement.innerText = text;
+function addText() {
+    let text = inputText.value
+    console.log(text)
+    let newButton = document.createElement('button')
+    newButton.classList.add('btn')
+    newButton.classList.add('btn-outline-primary')
+    newButton.classList.add('m-2')
+    newButton.innerText = text
+    output.appendChild(newButton)
 }
 
-let keyword = {
-    'ok' : 'Ok',
-    'cancel' : 'Cancel',
-    'no' : 'No'
-}
+searchButton.addEventListener('click', addText)
 
-/*function onTextClicked(e) {
-    text = ''
-    textElement.innerText = text
-}
-textElement.onclick = onTextClicked*/
+inputText.addEventListener('blur', addText)
 
-
-
+/*const outputContainer = document.getElementById('output-container')
 let counter = 0
 
 function addNode() {
@@ -43,5 +28,16 @@ function addNode() {
     counter = counter +1 
     newNode.innerText = counter
     outputContainer.appendChild(newNode)
-}
+}*/
 
+const navbarAutocomplete = document.querySelector('#navbar-search-autocomplete');
+const navbarData = ['One', 'Two', 'Three', 'Four', 'Five'];
+const navbarDataFilter = (value) => {
+  return navbarData.filter((item) => {
+    return item.toLowerCase().startsWith(value.toLowerCase());
+  });
+};
+
+new mdb.Autocomplete(navbarAutocomplete, {
+  filter: navbarDataFilter,
+});
