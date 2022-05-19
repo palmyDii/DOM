@@ -21,3 +21,10 @@
     color: white;
     background-color:black;
 }
+
+.toggleOn {
+    background-color: white;
+}
+.toggleOff {
+    background-color: darkgray;
+}
