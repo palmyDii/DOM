@@ -1,48 +1,46 @@
-document.getElementById('ok').addEventListener('click', function (e) {
-    let noElement = document.getElementById('no')
-    if(noElement.classList.contains('toggleOn')) {
-        noElement.classList.replace('toggleOn', 'toggleOff')
-    } else if(noElement.classList.contains('toggleOff')) {
-        noElement.classList.replace('toggleOff', 'toggleOn')
-    } else {
-        noElement.classList.add('toggleOn')
-    }
-
-    console.log(document.getElementById('no'))
-})
-
-/*let borderThick = 2
-document.getElementById('cancel').style.border = `${borderThick}px solid white`
-
-let cancelElement = document.getElementById('cancel')
-cancelElement.addEventListener('mousemove', function(e) {
-    cancelElement.innerHTML = `
-        cancle
-    `
-})*/
-
-
 const okElement = document.getElementById('ok')
 const cancelElement = document.getElementById('cancel')
 const noElement = document.getElementById('no')
+const textElement = document.getElementById('text')
 
-let margin = 20
-okElement.addEventListener('click', function(e) {
-    let marginSize = `20px ${margin}px`
-    cancelElement.style.margin = marginSize
-    noElement.style.margin = marginSize
-    margin+=5
-})
+let text = ''
 
-let words = ['ok', 'วิชานี้', 'ง่าย', 'จริงๆนะ']
-showIndex = 0;
-noElement.addEventListener('dblclick', function() {
-    okElement.innerText = words[showIndex]
-    showIndex++
+function onOkClicked(e) {
+    e.stopPropagation()
+    //alert(' ok clicked')
+    display(okElement.id)
+}
+function onCancelClicked(e) {
+    e.stopPropagation()
+    //alert(' cancel clicked')
+    display(cancelElement.id)
 
-    if(showIndex >= words.length) {
-        showIndex = 0
-    }
+}
+function onNoClicked(e) {
+    e.stopPropagation()
+    //alert(' no clicked')
+    display(noElement.id)
+}
 
-    console.log(okElement)
-})
+cancelElement.addEventListener('click', onCancelClicked)
+
+noElement.onclick = onNoClicked
+
+document.getElementById('container').onclick = function(e) {
+    alert(' container clicked')
+}
+
+
+function onTextClicked(e) {
+    text = ''
+    textElement.innerText = text
+}
+textElement.onclick = onTextClicked
+
+function display(name) {
+    text = text + name +'\n'
+    textElement.innerText = text;
+
+    console.log(text)
+}
+

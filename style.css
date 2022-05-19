@@ -5,7 +5,7 @@
     background-color: lightgray;
 }
 .flex-item {
-    flex-basis: 50px;
+    flex-basis: 200px;
     padding: 20px;
     margin: 20px;
     background-color: darkgray;
@@ -13,6 +13,7 @@
     font-family: sans-serif;
     text-align: center;
 }
+
 #ok {
     color: red;
     border: 2px solid red;
@@ -20,6 +21,9 @@
 #cancel {
     color: white;
     background-color:black;
+}
+#text {
+    background-color: rgb(56, 207, 207);
 }
 
 .toggleOn {
