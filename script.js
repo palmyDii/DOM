@@ -34,18 +34,14 @@ okElement.addEventListener('click', function(e) {
     margin+=5
 })
 
-//let words = ['ok', 'วิชานี้', 'ง่าย', 'จริงๆนะ']
-//showIndex = 0;
+let words = ['ok', 'วิชานี้', 'ง่าย', 'จริงๆนะ']
+showIndex = 0;
 noElement.addEventListener('dblclick', function() {
-    //showIndex++
-    if(okElement.textContent.includes('ok')) {
-        okElement.textContent = okElement.textContent.replace('ok', 'วิชานี้')
-    } else if(okElement.textContent.includes('วิชานี้')) {
-        okElement.textContent = okElement.textContent.replace('วิชานี้', 'ง่าย')
-    } else if(okElement.textContent.includes('ง่าย')) {
-        okElement.textContent = okElement.textContent.replace('ง่าย', 'จริงๆนะ')
-    } else {
-        okElement.textContent = 'ok'
+    okElement.innerText = words[showIndex]
+    showIndex++
+
+    if(showIndex >= words.length) {
+        showIndex = 0
     }
 
     console.log(okElement)
