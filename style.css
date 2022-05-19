@@ -4,6 +4,14 @@
     justify-content: center;
     background-color: lightgray;
 }
+
+.output-container {
+    display: flex;
+    flex-flow: row wrap; 
+    justify-content: center;
+    background-color: blue;
+}
+
 .flex-item {
     flex-basis: 200px;
     padding: 20px;
@@ -24,6 +32,13 @@
 }
 #text {
     background-color: rgb(56, 207, 207);
+
+    flex-basis: 200px;
+    padding: 20px;
+    margin: 20px;
+    font-size: 2rem;
+    font-family: sans-serif;
+    text-align: center;
 }
 
 .toggleOn {
